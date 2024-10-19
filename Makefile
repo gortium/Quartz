@@ -24,3 +24,5 @@ commit_public:
 	git push github master
 
 deploy: build commit_public
+
+all: commit_quartz deploy 
