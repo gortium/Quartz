@@ -64,7 +64,7 @@ export default {
     },
     error: {
       title: "Not Found",
-      notFound: "Either this page is private or doesn't exist.",
+      notFound: "Either this page is private or is still a work in progress.",
       home: "Return to Homepage",
     },
     folderContent: {
