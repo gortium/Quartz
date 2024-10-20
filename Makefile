@@ -21,7 +21,7 @@ commit_public:
 	fi
 	@echo "Pushing to repository..."
 	@cd $(OUTPUT_REPO) && \
-	git push github master
+	git push origin master
 
 deploy: build commit_public
 
