@@ -16,7 +16,7 @@ const config: QuartzConfig = {
       provider: "plausible",
     },
     locale: "en-US",
-    baseUrl: "gortium.github.io",
+    baseUrl: "thierrypouplier.com",
     ignorePatterns: ["private", "templates", ".obsidian", "!(PublicMedia)**/!(*.md)", "!(*.md)"],
     defaultDateType: "created",
     theme: {
@@ -87,6 +87,7 @@ const config: QuartzConfig = {
       Plugin.Assets(),
       Plugin.Static(),
       Plugin.NotFoundPage(),
+      Plugin.CNAME(),
     ],
   },
 }
