@@ -2,22 +2,29 @@ import { pathToRoot, slugTag } from "../util/path"
 import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
 import { classNames } from "../util/lang"
 
+  // List of specific tags to exclude
+  const excludeTags = [""]
+  // Exclude all tags that start with '#skill/'
+  const excludeTagsStartingWith = 'skill/'
+
 const TagList: QuartzComponent = ({ fileData, displayClass }: QuartzComponentProps) => {
   const tags = fileData.frontmatter?.tags
   const baseDir = pathToRoot(fileData.slug!)
   if (tags && tags.length > 0) {
     return (
-      <ul class={classNames(displayClass, "tags")}>
-        {tags.map((tag) => {
-          const linkDest = baseDir + `/tags/${slugTag(tag)}`
-          return (
-            <li>
-              <a href={linkDest} class="internal tag-link">
-                {tag}
-              </a>
-            </li>
-          )
-        })}
+      <ul className={classNames(displayClass, "tags")}>
+        {tags
+          .filter((tag) => !excludeTags.includes(tag) && !tag.startsWith(excludeTagsStartingWith))
+          .map((tag) => {
+            const linkDest = baseDir + `/tags/${slugTag(tag)}`
+            return (
+              <li key={tag}>
+                <a href={linkDest} className="internal tag-link">
+                  {tag}
+                </a>
+              </li>
+            )
+          })}
       </ul>
     )
   } else {
