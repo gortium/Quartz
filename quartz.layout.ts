@@ -55,7 +55,7 @@ export const defaultContentPageLayout: PageLayout = {
         fontSize: 0.3,
         opacityScale: 0.6,
         removeTags: [], // what tags to remove from the graph
-        showTags: false, // whether to show tags in the graph
+        showTags: true, // whether to show tags in the graph
       },
     }),
     Component.DesktopOnly(Component.TableOfContents()),
